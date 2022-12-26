@@ -5,13 +5,14 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 let read = document.getElementById("read-btn");
-let form = document.getElementById("bookForm")
+let form = document.getElementById("bookForm");
 
-function Object(title, author, pages, read){
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+
+function openForm() {
+  document.getElementById("bookForm").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("bookForm").style.display = "none";
 }
 
 registerBook.addEventListener("click", function() {
@@ -22,13 +23,37 @@ registerBook.addEventListener("click", function() {
     pages: pages.value,
     read: read.value,
   })
+  renderBooks();
   console.log(myLibrary);
 })
 
-function openForm() {
-  document.getElementById("bookForm").style.display = "block";
-}
-function closeForm() {
-  document.getElementById("bookForm").style.display = "none";
-}
+function renderBooks(){
 
+  let bookShelf = document.querySelector('#bookShelf');
+
+  let bookCover = document.createElement('div');
+  bookCover.classList.add('bookCover');
+  bookShelf.appendChild(bookCover);
+
+  let bookTitle = document.createElement('div');
+  bookTitle.classList.add('book-title');
+  bookCover.append(bookTitle);
+  
+  let bookAuthor = document.createElement('div');
+  bookAuthor.classList.add('book-author');
+  bookCover.append(bookAuthor);
+
+  let bookPages = document.createElement('div');
+  bookPages.classList.add('book-pages');
+  bookCover.append(bookPages);
+
+  let bookStatus = document.createElement('div');
+  bookStatus.classList.add('book-status');
+  bookCover.append(bookStatus);
+
+  bookTitle.textContent = title.value;
+  bookAuthor.textContent = author.value;
+  bookPages.textContent = pages.value;
+  bookStatus.textContent = read.value;
+
+}
