@@ -15,6 +15,7 @@ function closeForm() {
   document.getElementById("bookForm").style.display = "none";
 }
 
+
 registerBook.addEventListener("click", function() {
  
   myLibrary.push({
@@ -25,7 +26,17 @@ registerBook.addEventListener("click", function() {
   })
   renderBooks();
   console.log(myLibrary);
+
 })
+
+/*doesnt work
+
+deleteCard.addEventListener("click", () => {
+  bookShelf.removeChild(bookCover);
+  myLibrary.splice(bookCover, 1);
+})
+
+*/
 
 function renderBooks(){
 
@@ -35,17 +46,42 @@ function renderBooks(){
   bookCover.classList.add('bookCover');
   bookShelf.appendChild(bookCover);
 
+  let deleteCard = document.createElement('div');
+  deleteCard.classList.add('delete-card');
+  deleteCard.id = "deleteCard";
+  bookCover.append(deleteCard);
+
+  let bookTitleTag = document.createElement('div');
+  bookTitleTag.classList.add('book-title-tag');
+  bookCover.append(bookTitleTag);
+  bookTitleTag.textContent = 'Book title:';
+
   let bookTitle = document.createElement('div');
   bookTitle.classList.add('book-title');
   bookCover.append(bookTitle);
   
+  let bookAuthorTag = document.createElement('div');
+  bookAuthorTag.classList.add('book-author-tag');
+  bookCover.append(bookAuthorTag);
+  bookAuthorTag.textContent = 'Book author:';
+
   let bookAuthor = document.createElement('div');
   bookAuthor.classList.add('book-author');
   bookCover.append(bookAuthor);
 
+  let bookPagesTag = document.createElement('div');
+  bookPagesTag.classList.add('book-pages-tag');
+  bookCover.append(bookPagesTag);
+  bookPagesTag.textContent = 'No of pages:';
+
   let bookPages = document.createElement('div');
   bookPages.classList.add('book-pages');
   bookCover.append(bookPages);
+
+  let bookStatusTag = document.createElement('div');
+  bookStatusTag.classList.add('book-pages-tag');
+  bookCover.append(bookStatusTag);
+  bookStatusTag.textContent = 'Have you read the book?:';
 
   let bookStatus = document.createElement('div');
   bookStatus.classList.add('book-status');
@@ -55,5 +91,10 @@ function renderBooks(){
   bookAuthor.textContent = author.value;
   bookPages.textContent = pages.value;
   bookStatus.textContent = read.value;
+
+  deleteCard.addEventListener("click", () => {
+    bookShelf.removeChild(bookCover);
+    myLibrary.splice(bookCover, 1);
+  });
 
 }

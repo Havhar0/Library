@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,800&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -33,6 +32,7 @@ body{
     font-size: 45px;
     letter-spacing: -1px;
     color: rgb(33, 33, 33);
+    margin-right: 20px;
 }
 .buttons{
     display: flex;
@@ -113,7 +113,6 @@ body{
     transform: rotate(-45deg);
   }
 
-
 .form-popup {
     display: none;
     position: fixed;
@@ -127,6 +126,7 @@ body{
 
 .form-container {
   padding: 10%;
+  border-radius: 10px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -184,42 +184,107 @@ form h1{
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  padding: 100px;
+  padding: 100px 100px 0px 100px;
 }
 
+/*---- BOOK COVERS -----*/
+
 .bookCover{
-  width:200px;
+  width: 220px;
   height:300px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr;
+  grid-template-columns: 1fr;
+  padding: 25px;
+  border-radius: 10px;
+  position: relative;
 }
 
 .book-title{
   width:100%;
   height:20px;
   font-weight: 600;
-  font-size: 1.2em;;
+  font-size: 1.3em;
+  padding: 5px 0px 15px 0px;
+  border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
 .book-author{
   width:100%;
   height:20px;
-  font-weight: 600;
-  font-size: 1em;;
+  font-weight: 300;
+  font-size: 1em;
+  font-style: italic;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
 .book-pages{
   width:100%;
   height:20px;
-  font-weight: 600;
-  font-size: 1.2em;;
+  font-weight: 300;
+  font-size: 1em;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
 .book-status{
   width:100%;
   height:20px;
-  font-weight: 600;
-  font-size: 1.2em;;
+  font-weight: 300;
+  font-size: 1em;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px dotted rgb(214, 214, 214);
+}
+
+.book-title-tag{
+  height:10px;
+  font-size: 0.5em;
+}
+
+.book-author-tag{
+  height:10px;
+  font-size: 0.5em;
+}
+
+.book-pages-tag{
+  height:10px;
+  font-size: 0.5em;
+}
+
+.book-status-tag{
+  height:10px;
+  font-size: 0.5em;
+}
+
+.delete-card{
+  position: absolute;
+  right: 25px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.delete-card:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.delete-card:before, .delete-card:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 18px;
+  width: 1.3px;
+  background-color: #333;
+}
+.delete-card:before {
+  transform: rotate(45deg);
+}
+.delete-card:after {
+  transform: rotate(-45deg);
 }
