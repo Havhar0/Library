@@ -15,7 +15,7 @@
         <div class="header">
             <div class="logo">Library</div>
             <div class="buttons">
-                <div class="add-book-btn" onclick="openForm()">Add Book</div>
+                <div class="add-book-btn" id="addBookBtn" onclick="openForm()">Add Book</div>
                 <!--<div class="login-btn">Log in</div> -->
             </div>
         </div>
@@ -41,8 +41,8 @@
                         <p>Have you read it?</p>
 
                         <select name="read" id="read-btn">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option id="option-yes" value="Yes">Yes</option>
+                            <option id="option-no" value="No">No</option>
                           </select>
 
                     </div>

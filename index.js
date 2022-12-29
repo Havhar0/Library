@@ -7,14 +7,12 @@ const pages = document.getElementById("pages");
 let read = document.getElementById("read-btn");
 let form = document.getElementById("bookForm");
 
-
 function openForm() {
   document.getElementById("bookForm").style.display = "block";
 }
 function closeForm() {
   document.getElementById("bookForm").style.display = "none";
 }
-
 
 registerBook.addEventListener("click", function() {
  
@@ -28,15 +26,6 @@ registerBook.addEventListener("click", function() {
   console.log(myLibrary);
 
 })
-
-/*doesnt work
-
-deleteCard.addEventListener("click", () => {
-  bookShelf.removeChild(bookCover);
-  myLibrary.splice(bookCover, 1);
-})
-
-*/
 
 function renderBooks(){
 
@@ -82,9 +71,10 @@ function renderBooks(){
   bookStatusTag.classList.add('book-pages-tag');
   bookCover.append(bookStatusTag);
   bookStatusTag.textContent = 'Have you read the book?:';
-
-  let bookStatus = document.createElement('div');
-  bookStatus.classList.add('book-status');
+  
+  let bookStatus = document.createElement('button');
+  bookStatus.classList.add('book-status-btn');
+  bookStatus.id = 'book-status-btn';
   bookCover.append(bookStatus);
 
   bookTitle.textContent = title.value;
@@ -92,9 +82,20 @@ function renderBooks(){
   bookPages.textContent = pages.value;
   bookStatus.textContent = read.value;
 
-  deleteCard.addEventListener("click", () => {
+  bookStatus.addEventListener("click", () => {
+    let title = bookTitle.textContent;
+    let book = myLibrary.find(book => book.title === title);
+    if (book) {
+      book.read = book.read === 'Yes' ? 'No' : 'Yes';
+      bookStatus.textContent = book.read;
+    }
+  });
+
+
+    deleteCard.addEventListener("click", () => {
     bookShelf.removeChild(bookCover);
     myLibrary.splice(bookCover, 1);
   });
 
 }
+
