@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,800&display=swap');
-*{
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+   margin: 0;
+   padding: 0;
 }
 body{
-    margin: 0;
+    height: calc(100vh - 25vh);
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     background-color: rgb(228, 228, 228);
 }
 .wrapper{
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 20vh);
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 15vh 80vh 5vh;
 }
 .header{
     background-color: rgb(255, 255, 255);
@@ -26,6 +31,8 @@ body{
     padding-left: 100px;
     padding-right: 100px;
 }
+
+
 .logo{
     font-weight: 700;
     font-size: 45px;
@@ -192,7 +199,7 @@ form h1{
 }
 
 #bookShelf{
-  height: 100vh;
+  height: auto;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
@@ -208,62 +215,91 @@ form h1{
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: grid;
-  grid-template-rows: 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr;
+  grid-template-rows: 0.4fr 1fr 0.4fr 1fr 0.4fr 1fr 0.4fr 1fr;
   grid-template-columns: 1fr;
-  padding: 25px;
+  padding: 15px;
   border-radius: 10px;
   position: relative;
 }
 
+/* Title */
+.book-title-tag{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.6em;
+}
 .book-title{
   display: flex;
   justify-content: center;
+  align-items: center;
   width:100%;
-  height:20px;
+  height:auto;
   font-weight: 600;
   font-size: 1.3em;
-  padding: 5px 0px 15px 0px;
   border-bottom: 1px dotted rgb(214, 214, 214);
+}
+
+/* Author */
+.book-author-tag{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.6em;
 }
 
 .book-author{
   display: flex;
   justify-content: center;
+  align-items: center;
   width:100%;
-  height:20px;
+  height:auto;
   font-weight: 300;
   font-size: 1em;
   font-style: italic;
-  padding: 5px 0px 5px 0px;
   border-bottom: 1px dotted rgb(214, 214, 214);
+}
+
+/* Pages */
+.book-pages-tag{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.6em;
 }
 
 .book-pages{
-
   display: flex;
   justify-content: center;
+  align-items: center;
   width:100%;
-  height:20px;
+  height:auto;
   font-weight: 300;
   font-size: 1em;
-  padding: 5px 0px 5px 0px;
   border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
+/* Pages */
+.book-status-tag{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.6em;
+}
 .book-status{
-
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   width:100%;
   height:20px;
   font-weight: 300;
   font-size: 1em;
-  padding: 5px 0px 5px 0px;
   border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
 .book-status-btn{
   margin-top: 10px;
+  margin-bottom: 0;
   width:100%;
   height:35px;
   border: none;
@@ -282,34 +318,6 @@ form h1{
   font-size: 1em;
   background-color: #04AA6D;
   color: white;
-}
-
-.book-title-tag{
-  display: flex;
-  justify-content: center;
-  height:10px;
-  font-size: 0.6em;
-}
-
-.book-author-tag{
-  display: flex;
-  justify-content: center;
-  height:10px;
-  font-size: 0.6em;
-}
-
-.book-pages-tag{
-  display: flex;
-  justify-content: center;
-  height:10px;
-  font-size: 0.6em;
-}
-
-.book-status-tag{
-  display: flex;
-  justify-content: center;
-  height:10px;
-  font-size: 0.6em;
 }
 
 .delete-card{
@@ -340,4 +348,39 @@ form h1{
 }
 .delete-card:after {
   transform: rotate(-45deg);
+}
+
+
+/*---------- FOOTER -----*/
+
+.footer {
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: rgb(46, 46, 46);
+  font-size: 10px;
+}
+.footer p{
+  display: flex;
+  align-items: center;
+}
+
+.footer a{
+  display: flex;
+  align-items: center;
+}
+
+.footer a:hover{
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.footer img{
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
 }

@@ -91,7 +91,6 @@ function renderBooks(){
     }
   });
 
-
     deleteCard.addEventListener("click", () => {
     bookShelf.removeChild(bookCover);
     myLibrary.splice(bookCover, 1);
